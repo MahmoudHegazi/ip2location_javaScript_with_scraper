@@ -1,5 +1,12 @@
 # ip2location_javaScript_with_scraper
-for China ips only
+
+# what is this
+example of how to detect location and area by IPaddress using JS (convert ip to location) */
+
+# How to use
+Required before run you can only test it on console in https://lite.ip2location.com/china-ip-address-ranges (or you can provide your data and fill up ranges array with your own data or use scraper to get all other countries first and assign the data to ranges value and start run without scraping in your web app 
+
+# function call example (current scraper only for China ips) (scraper should used 1 time outside this function and get data and save it in database) (must be done)
 
 ```
 getLocationByIP("1.1.2.254")
