@@ -12,6 +12,8 @@ example page: https://lite.ip2location.com /china-ip-address-ranges
 
 example valid link: https://lite.ip2location.com/malaysia-ip-address-ranges
 
+##### the main goal convert ip to any country and area using js using valid ranges
+
 ```
 getLocationByIP("1.1.2.254")
 (4) invalid area
