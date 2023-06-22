@@ -18,7 +18,8 @@ function getLocationByIP(ipAddress){
 
     return obj;
 });
-    const ranges = [{name: 'china', data: chinnaIpsRanges}];
+    const countryName = (document.querySelector("title")) ? document.querySelector("title").innerText.split(" ")[0] : 'other';
+    const ranges = [{name: countryName, data: chinnaIpsRanges}];
     
     for (let r=0; r<ranges.length; r++ ){
        const currentCountry = ranges[r];
@@ -37,7 +38,7 @@ function getLocationByIP(ipAddress){
                      const ipAreaGroupEndPart = Number(ipAreaGroupEndList[ipI]);
 let vaildPart = ipParameterPart >= ipAreaGroupBeginPart && ipParameterPart <= ipAreaGroupEndPart && ipParameterPart < 255;
                      if (!vaildPart){
-                         console.log("invalid", 0 >= 0 && 0 <= 0);
+                         console.log("invalid area");
                          inThisCountryRange = false;
                          break;
 
@@ -63,7 +64,14 @@ let vaildPart = ipParameterPart >= ipAreaGroupBeginPart && ipParameterPart <= ip
     }
     return result;
 };
-getLocationByIP("1.1.2.254")
+
+getLocationByIP("1.32.70.254");
+/*  Result
+Malaysia
+{begin: '1.32.0.0', end: '1.32.127.255', total: '32,768'}
+*/
+
+// getLocationByIP("1.1.2.254") // (China IP example in china page)
 /* 
   result example with found location
   getLocationByIP("1.1.2.254")
