@@ -92,12 +92,14 @@ function loadBalncerDirect(ipAddress){
       countryname = String(userRequesterArea.country).trim().toLocaleLowerCase();
   }
   const currentInstances = {
-      malaysia: {status: 'ready', users: 30, responded: true, maxUsers: 31, latutide: 0, longtuide: 0, redirectUrl: '30.122.122.254'},
+      malaysia: {status: 'ready', users: 30, responded: true, maxUsers: 31, latutide: 0, longtuide: 0, redirectUrl: 'https://30.122.122.254'},
       china: {status: 'busy', users: 100, responded: false, maxUsers: 200, latutide: 0, longtuide: 0},
       egypt: {status: 'ready', users: 80, responded: true, maxUsers: 100, latutide: 0, longtuide: 0}
   };
   if (currentInstances[countryname] && currentInstances[countryname].status == 'ready'){
       console.log("we have instance in this country");
+      //redirect request to available instanse also maybe add query paramter of user request
+      window.location.href = currentInstances[countryname].redirectUrl;
       return currentInstances[countryname];
   } else {
      console.log("no instance in requester company code for get nearst ready country");
