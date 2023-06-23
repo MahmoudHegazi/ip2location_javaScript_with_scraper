@@ -79,3 +79,27 @@ Malaysia
   china
   {begin: '1.1.2.0', end: '1.1.63.255', total: '15,872'}
 */
+
+
+
+
+
+//small extension for simple example of loadblancer funciton require requests to get status of instances
+function loadBalncerDirect(ipAddress){
+  const userRequesterArea = getLocationByIP(ipAddress);
+  let countryname = '';
+  if (userRequesterArea && userRequesterArea.country){
+      countryname = String(userRequesterArea.country).trim().toLocaleLowerCase();
+  }
+  const currentInstances = {
+      malaysia: {status: 'ready', users: 30, responded: true, maxUsers: 31, latutide: 0, longtuide: 0, redirectUrl: '30.122.122.254'},
+      china: {status: 'busy', users: 100, responded: false, maxUsers: 200, latutide: 0, longtuide: 0},
+      egypt: {status: 'ready', users: 80, responded: true, maxUsers: 100, latutide: 0, longtuide: 0}
+  };
+  if (currentInstances[countryname] && currentInstances[countryname].status == 'ready'){
+      console.log("we have instance in this country");
+      return currentInstances[countryname];
+  } else {
+     console.log("no instance in requester company code for get nearst ready country");
+  }
+}
